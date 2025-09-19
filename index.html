@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Traffic Management System | SIH 2024</title>
+    <title>ClearWays | Smart Traffic Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -11,6 +11,11 @@
 </head>
 <body class="min-h-screen py-8 px-4 md:px-8">
     
+    <header class="header-section mb-8">
+        <h1>Clear<span class="accent-text">Ways</span></h1>
+        <p class="text-lg md:text-xl">Smart Traffic Management: Dashboard & Analytics</p>
+    </header>
+
     <div class="container mx-auto max-w-7xl">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8" id="stats-overview" style="display: none;">
             <div class="stats-box">
@@ -19,7 +24,7 @@
                         <p class="text-gray-400 text-sm">Total Intersections</p>
                         <p class="text-2xl font-bold">30</p>
                     </div>
-                    <i class="fas fa-crosshairs text-2xl text-blue-400"></i>
+                    <i class="fas fa-crosshairs text-2xl text-gray-400"></i>
                 </div>
             </div>
             <div class="stats-box">
@@ -46,7 +51,7 @@
                         <p class="text-gray-400 text-sm">AI Predictions</p>
                         <p class="text-2xl font-bold">87%</p>
                     </div>
-                    <i class="fas fa-brain text-2xl text-purple-400"></i>
+                    <i class="fas fa-brain text-2xl text-blue-400"></i>
                 </div>
             </div>
         </div>
@@ -62,12 +67,9 @@
                     <div class="card p-6 mb-6">
                         <div class="flex justify-between items-center mb-6">
                             <h2 class="text-xl font-bold">Bhubaneswar Traffic Overview</h2>
-                            <button class="theme-toggle flex items-center">
-                                <i class="fas fa-moon mr-2"></i> Dark Mode
-                            </button>
-                        </div>
+                            </div>
                         
-                        <div id="main-panel" class="relative w-full h-[400px] md:h-[600px] bg-gray-800 rounded-2xl shadow-xl flex items-center justify-center">
+                        <div id="main-panel" class="relative w-full h-[400px] md:h-[600px] bg-gray-900 rounded-2xl shadow-xl flex items-center justify-center">
                             <div id="traffic-simulation-grid" class="w-full h-full p-2" style="display: grid;"></div>
                         </div>
                     </div>
@@ -115,7 +117,7 @@
                 </div>
 
                 <div class="w-full max-w-lg mt-8">
-                    <button id="manual-control-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                    <button id="manual-control-button" class="w-full btn-primary">
                         Show Manual Control
                     </button>
                 </div>

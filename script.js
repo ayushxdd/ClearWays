@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // New code variables
     let currentDetailsIntersection = null;
-    const themeToggle = document.querySelector('.theme-toggle');
+    // REMOVED: const themeToggle = document.querySelector('.theme-toggle');
     const navTabs = document.getElementById('nav-tabs');
     const pages = document.querySelectorAll('.page');
     const intersectionSelect = document.getElementById('intersection-select');
@@ -261,7 +261,8 @@ document.addEventListener('DOMContentLoaded', () => {
         laneDetailsContainer.innerHTML = ''; // Clear old content
         intersection.lanes.forEach(lane => {
             const breakdownDiv = document.createElement('div');
-            breakdownDiv.className = 'bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 w-full';
+            // Removed bg-gray-800 to rely on general .card styling or custom CSS in style.css
+            breakdownDiv.className = 'p-6 rounded-xl shadow-lg border border-gray-700 w-full';
             
             const controlIcon = lane.manualActive ? '<i class="fas fa-hand-pointer text-yellow-400 text-lg ml-2"></i>' : '<i class="fas fa-brain text-blue-400 text-lg ml-2"></i>';
 
@@ -286,8 +287,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const laneControlsContainer = document.getElementById('lane-controls-container');
         laneControlsContainer.innerHTML = '';
         intersection.lanes.forEach(lane => {
+            // Removed bg-gray-800 to rely on general .card styling or custom CSS in style.css
             const controlDiv = document.createElement('div');
-            controlDiv.className = 'bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 w-full flex flex-col items-center justify-center';
+            controlDiv.className = 'p-6 rounded-xl shadow-lg border border-gray-700 w-full flex flex-col items-center justify-center';
             controlDiv.dataset.direction = lane.direction;
 
             const activeIcon = lane.manualActive ? `<i class="fas fa-hand-pointer text-yellow-400 text-3xl"></i>` : `<i class="fas fa-brain text-blue-400 text-3xl"></i>`;
@@ -337,12 +339,13 @@ document.addEventListener('DOMContentLoaded', () => {
         detailsVehiclesEl.textContent = intersection.vehicleCount;
         detailsSpeedEl.textContent = intersection.averageSpeed;
         
+        // This button now uses the .btn-primary class defined in CSS
         manualControlButton.textContent = 'Show Manual Control';
-        manualControlButton.classList.remove('bg-red-600', 'hover:bg-red-700');
-        manualControlButton.classList.add('bg-blue-600', 'hover:bg-blue-700');
+        // REMOVED: manualControlButton.classList.remove('bg-red-600', 'hover:bg-red-700');
+        // REMOVED: manualControlButton.classList.add('bg-blue-600', 'hover:bg-blue-700');
+        
         manualControlSection.classList.add('hidden');
 
-        // Update the details UI with the latest data
         updateDetailsUI(intersection);
     }
 
@@ -358,10 +361,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const isHidden = manualControlSection.classList.contains('hidden');
         manualControlSection.classList.toggle('hidden');
         manualControlButton.textContent = isHidden ? 'Hide Manual Control' : 'Show Manual Control';
-        manualControlButton.classList.toggle('bg-blue-600');
-        manualControlButton.classList.toggle('hover:bg-blue-700');
-        manualControlButton.classList.toggle('bg-red-600');
-        manualControlButton.classList.toggle('hover:bg-red-700');
+        
+        // Removed explicit Tailwind color toggles, relying on base btn-primary style
+        // manualControlButton.classList.toggle('bg-blue-600');
+        // manualControlButton.classList.toggle('hover:bg-blue-700');
+        // manualControlButton.classList.toggle('bg-red-600');
+        // manualControlButton.classList.toggle('hover:bg-red-700');
     });
 
     // Event delegation for the traffic light buttons and revert buttons
@@ -418,16 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     intersectionSelect.addEventListener('change', updateChart);
     
-    // Theme toggle logic
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        
-        if (document.body.classList.contains('light-mode')) {
-            themeToggle.innerHTML = '<i class="fas fa-sun mr-2"></i> Light Mode';
-        } else {
-            themeToggle.innerHTML = '<i class="fas fa-moon mr-2"></i> Dark Mode';
-        }
-    });
+    // REMOVED: Theme toggle logic
 
     createTrafficGrid();
     const simulationInterval = setInterval(updateSimulation, 3000);
